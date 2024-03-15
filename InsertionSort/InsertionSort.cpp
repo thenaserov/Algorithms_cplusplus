@@ -35,7 +35,7 @@ int main()
 
 	// The repo name addresses algorithm, I thought it would be nice if we made use of algorithms as much as possible
 	// inorder to make it independent of the type on which unsorted and sorted has been intialized I used decltype,
-	// although it is that much neat!
+	// although it is not that much neat!
 	std::copy(std::begin(sorted), std::end(sorted), std::ostream_iterator<decltype(*sorted.begin())>{std::cout, ", "});
 	std::cout << std::endl;
 	return 0;
