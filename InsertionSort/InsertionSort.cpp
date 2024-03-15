@@ -6,17 +6,19 @@
 template <typename RandAccessContainer>
 RandAccessContainer &InsertionSort(RandAccessContainer &input_vector)
 {
-	int key = 0;
+	int key{};
 	for (size_t j = 2; j < input_vector.size(); ++j)
 	{
-		key = input_vector[j];
-		// I changed the location of i declaration and its type, so as j, to eliminate not-safe conversions between i and j 
-		// to signed types 
-		size_t i = 0;
+		// operator[] does not do range checking. Accessing element not presenting in vector silently leads to undefined behavior.
+		// at() member function does range checking and throws an exception when you are trying to access nonexisting element
+		key = input_vector.at(j);
+		// I changed the location of i declaration and its type, so as j, to eliminate not-safe conversions between i and j
+		// to signed types
+		static size_t i{};
 		i = j - 1;
-		while (i > 0 && input_vector[i] > key)
+		while (i > 0 && input_vector.at(i) > key)
 		{
-			input_vector[i + 1] = input_vector[i];
+			input_vector.at(i + 1) = input_vector.at(i);
 			i = i - 1;
 		}
 		input_vector[i + 1] = key;
