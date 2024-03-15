@@ -14,7 +14,7 @@ RandAccessContainer &InsertionSort(RandAccessContainer &input_vector)
 		key = input_vector.at(j);
 		// I changed the location of i declaration and its type, so as j, to eliminate not-safe conversions between i and j
 		// to signed types
-		static size_t i{};
+		static size_t i{}; // I made i static of this for loop in order to prevent declaring it over and over again in each iteration, so preserving its value
 		i = j - 1;
 		while (i > 0 && input_vector.at(i) > key)
 		{
