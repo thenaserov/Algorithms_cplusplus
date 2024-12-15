@@ -19,7 +19,7 @@ void bubbleSort(vector<int>& v) {
 }
 
 int main() {
-    vector<int> v = { 5, 1, 4, 2, 8 };
+    vector<int> v = { 10, 9, 4, 1, 2 };
     bubbleSort(v);
     for (auto i : v)
         cout << i << " ";
